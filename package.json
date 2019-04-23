@@ -1,5 +1,12 @@
 {
   "dependencies": {
     "pdfmake": "^0.1.54"
-  }
+  },
+  "name": "pdf-node",
+  "version": "1.0.0",
+  "description": "teste da lib pdf-make",
+  "main": "index.js",
+  "repository": "https://github.com/antoniorrm/pdf-node.git",
+  "author": "antoniorrm <antonioraimundo007@gmail.com>",
+  "license": "MIT"
 }
