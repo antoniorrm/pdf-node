@@ -14,8 +14,6 @@ var fs = require('fs');
 var jsonData = JSON.parse(fs.readFileSync("./extra.json", "utf8"));
 // Define font files
 
-
-
 const format = (number) => {
     let salary = parseFloat(number)
     salary = salary.toFixed(2)
@@ -138,7 +136,6 @@ const pdf = (json) => {
         }
     };
     var name = json.name+'.pdf';
-    // PdfPrinter.createPdf(docDefinition).download('teste.pdf');
     var pdfDoc = printer.createPdfKitDocument(docDefinition);
     pdfDoc.pipe(fs.createWriteStream(name));
     pdfDoc.end();    
