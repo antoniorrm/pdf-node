@@ -65,7 +65,7 @@ function table(data) {
                     content.push([
                         { text: 'Folha de Pagamentos ' + location.name, style: 'header' },
                         { text: 'JH SERVICOS E CONSTRUCAO LTDA - 22.653.504/0001-43', style: 'subHeader' },
-                        { text: 'PERÍODO DE ' + data.startDate + 'até' + data.finalDate, style: 'subHeader' }]);
+                        { text: 'PERÍODO DE ' + data.startDate + ' até ' + data.finalDate, style: 'subHeader' }]);
                     tabela = [{
                         pageBreak: 'after',
                         layout: 'lightHorizontalLines',
@@ -81,8 +81,6 @@ function table(data) {
                     cont = 0;
                 }
             }
-            // console.log(index);
-            // console.log(location.Employees.length+ "tam");
             if(cont === 4){
                 content.push([
                     { text: 'Folha de Pagamentos ' + location.name, style: 'header' },
@@ -111,7 +109,8 @@ function table(data) {
 const pdf = (json) => {
     var docDefinition = {
 
-        footer: function (currentPage, pageCount) { return currentPage.toString() + ' de ' + pageCount; },
+        footer: function(currentPage, pageCount) { 
+            return [{ text: currentPage.toString() + ' de ' + pageCount, alignment: 'right', style: 'footer'} ]},
     
         content: [
             table(json)
@@ -121,6 +120,10 @@ const pdf = (json) => {
             header: {
                 fontSize: 15,
                 bold: true,
+            },
+            footer: {
+                fontSize: 15,
+                margin: 10
             },
             subHeader: {
                 fontSize: 10,
